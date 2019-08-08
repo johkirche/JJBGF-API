@@ -2,7 +2,7 @@ version: '3'
 services:
   prisma:
     container_name: jjbgkitawo_prisma
-    image: prismagraphql/prisma:1.11
+    image: prismagraphql/prisma:1.34
     depends_on:  
       - mysql
     restart: always
