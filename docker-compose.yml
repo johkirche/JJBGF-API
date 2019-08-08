@@ -8,9 +8,9 @@ services:
       - 4466
     environment:
       VIRTUAL_PORT: 4466
-      VIRTUAL_HOST: ${VIRTUAL_HOST}
-      LETSENCRYPT_HOST: ${LETSENCRYPT_HOST}
-      LETSENCRYPT_EMAIL: ${LETSENCRYPT_EMAIL}
+      VIRTUAL_HOST: "${VIRTUAL_HOST}"
+      LETSENCRYPT_HOST: "${LETSENCRYPT_HOST}"
+      LETSENCRYPT_EMAIL: "${LETSENCRYPT_EMAIL}"
       PRISMA_CONFIG: |
         port: 4466
         # uncomment the next line and provide the env var PRISMA_MANAGEMENT_API_SECRET=my-secret to activate cluster security
@@ -21,14 +21,14 @@ services:
             host: mysql
             port: 3306
             user: root
-            password: ${MYSQL_ROOT_PASSWORD}
+            password: "${MYSQL_ROOT_PASSWORD}"
             migrations: true
   mysql:
     container_name: jjbgkitawo_mysql
     image: mysql:5.7
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
     volumes:
       - jjbgkitawo:/var/lib/mysql
 volumes:
