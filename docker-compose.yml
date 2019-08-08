@@ -6,8 +6,6 @@ services:
     depends_on:  
       - mysql
     restart: always
-    expose:
-      - 4466
     environment:
       VIRTUAL_PORT: 4466
       VIRTUAL_HOST: "${VIRTUAL_HOST}"
