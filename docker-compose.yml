@@ -1,20 +1,18 @@
 version: '3'
 services:
   prisma:
-    container_name: jjbgkitawo_prisma
     image: prismagraphql/prisma:1.34
-    depends_on:  
-      - mysql
     restart: always
+    ports:
+      - '4466:4466'
     environment:
       VIRTUAL_PORT: 4466
       VIRTUAL_HOST: "${VIRTUAL_HOST}"
       LETSENCRYPT_HOST: "${LETSENCRYPT_HOST}"
       LETSENCRYPT_EMAIL: "${LETSENCRYPT_EMAIL}"
       PRISMA_CONFIG: |
+        managementApiSecret: "HELLOWORLD"
         port: 4466
-        # uncomment the next line and provide the env var PRISMA_MANAGEMENT_API_SECRET=my-secret to activate cluster security
-        # managementApiSecret: whatever
         databases:
           default:
             connector: mysql
@@ -22,17 +20,15 @@ services:
             port: 3306
             user: root
             password: prisma
-            migrations: true
   mysql:
-    container_name: jjbgkitawo_mysql
     image: mysql:5.7
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: prisma
     volumes:
-      - jjbgkitawo:/var/lib/mysql
+      - mysql:/var/lib/mysql
 volumes:
-  jjbgkitawo:
+  mysql: ~
 
 networks:
   default:
