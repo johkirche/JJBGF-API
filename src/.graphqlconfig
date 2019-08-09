@@ -1,0 +1,10 @@
+projects:
+  app:
+    schemaPath: src/schema.graphql
+    extensions:
+      endpoints:
+        default: https://api.jjbg-kitawo.de
+  prisma:
+    schemaPath: src/generated/prisma.graphql
+    extensions:
+      prisma: prisma/prisma.yml
