@@ -21,14 +21,14 @@ services:
             host: mysql
             port: 3306
             user: root
-            password: "${MYSQL_ROOT_PASSWORD}"
+            password: prisma
             migrations: true
   mysql:
     container_name: jjbgkitawo_mysql
     image: mysql:5.7
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+      MYSQL_ROOT_PASSWORD: prisma
     volumes:
       - jjbgkitawo:/var/lib/mysql
 volumes:
