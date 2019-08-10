@@ -4,9 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "esm": "3.2.25",
     "bcryptjs": "^2.4.3",
     "dotenv": "^6.0.0",
+    "esm": "3.2.25",
     "graphql-yoga": "^1.14.12",
     "jsonwebtoken": "^8.3.0",
     "prisma-binding": "^2.1.0"
