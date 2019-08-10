@@ -1,31 +1,31 @@
 # import Post from './generated/prisma.graphql'
 # import User from './generated/prisma.graphql'
 
-type User {
-  id: ID!
-  name: String!
-  email: String!
-  admin: Boolean!
-  posts: [Post!]!
-}
+# type User {
+#   id: ID!
+#   name: String!
+#   email: String!
+#   admin: Boolean!
+#   posts: [Post!]!
+# }
 
-type AuthPayload {
-  token: String
-  user: User
-}
+# type AuthPayload {
+#   token: String
+#   user: User
+# }
 
 type Query {
-  posts: [Post!]!
-  user(id: ID!): User!
-  users: [User!]!
+  # posts: [Post!]!
+  # user(id: ID!): User!
+  # users: [User!]!
   rooms: [Room!]!
-  dates: [Date!]!
+  # dates: [Date!]!
   room(id: ID!): Room!
 }
 
 type Mutation {
-  post(title: String!, content: String!): Post
+  # post(title: String!, content: String!): Post
   updateRoom(id: ID!, name: String, open: Boolean): Room
-  signup(email: String!, password: String!, name: String!): AuthPayload
-  login(email: String!, password: String!): AuthPayload
+  # signup(email: String!, password: String!, name: String!): AuthPayload
+  # login(email: String!, password: String!): AuthPayload
 }
