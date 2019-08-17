@@ -9,6 +9,7 @@ services:
       VIRTUAL_HOST: "${API_VIRTUAL_HOST}"
       LETSENCRYPT_HOST: "${API_LETSENCRYPT_HOST}"
       LETSENCRYPT_EMAIL: "${API_LETSENCRYPT_EMAIL}"
+      PRISMA_SECRET: "${PRISMA_SECRET}"
   prisma:
     image: prismagraphql/prisma:1.34
     restart: always
@@ -19,6 +20,7 @@ services:
       VIRTUAL_HOST: "${PRISMA_VIRTUAL_HOST}"
       LETSENCRYPT_HOST: "${PRISMA_LETSENCRYPT_HOST}"
       LETSENCRYPT_EMAIL: "${PRISMA_LETSENCRYPT_EMAIL}"
+      PRISMA_SECRET: "${PRISMA_SECRET}"
       PRISMA_CONFIG: |
         managementApiSecret: "${PRISMA_MANAGEMENT_API_SECRET}"
         secret: "${PRISMA_SECRET}"
