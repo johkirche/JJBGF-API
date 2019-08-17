@@ -11,16 +11,19 @@ const resolvers = {
   Mutation,
   AuthPayload
 };
+
+const prisma = new Prisma({
+  typeDefs: "src/generated/prisma.graphql",
+  endpoint: "https://prisma.jjbg-kitawo.de",
+  secret: process.env.PRISMA_SECRET
+});
+
 const server = new GraphQLServer({
   typeDefs: "src/schema.graphql",
   resolvers,
   context: req => ({
     ...req,
-    prisma: new Prisma({
-      typeDefs: "src/generated/prisma.graphql",
-      endpoint: "https://prisma.jjbg-kitawo.de",
-      secret: process.env.PRISMA_SECRET
-    })
+    prisma
   })
 });
 server.start(() =>
