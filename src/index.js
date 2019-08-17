@@ -12,6 +12,8 @@ const resolvers = {
   AuthPayload
 };
 
+console.log("PROCESS ENV:", process.env.PRISMA_SECRET);
+
 const prisma = new Prisma({
   typeDefs: "src/generated/prisma.graphql",
   endpoint: "https://prisma.jjbg-kitawo.de",
