@@ -1,6 +1,7 @@
 require("dotenv").config();
 const { GraphQLServer } = require("graphql-yoga");
 const { Prisma } = require("prisma-binding");
+const cors = require("cors");
 
 const Query = require("./resolvers/Query");
 const Mutation = require("./resolvers/Mutation");
@@ -11,8 +12,6 @@ const resolvers = {
   Mutation,
   AuthPayload
 };
-
-console.log("PROCESS ENV:", process.env.PRISMA_SECRET);
 
 const prisma = new Prisma({
   typeDefs: "src/generated/prisma.graphql",
@@ -38,6 +37,12 @@ server.express.use(function(req, res, next) {
   next();
 });
 
-server.start(() =>
-  console.log(`GraphQL server is running on http://localhost:4000`)
+server.start(
+  {
+    cors: {
+      credentials: true,
+      origin: "http://localhost:8080/"
+    }
+  },
+  () => console.log(`GraphQL server is running on http://localhost:4000`)
 );
