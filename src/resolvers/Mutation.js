@@ -108,8 +108,8 @@ async function updateRoom(parent, args, context, info) {
 // }
 
 module.exports = {
-  signup,
-  login,
-  post,
+  // signup,
+  // login,
+  // post,
   updateRoom
 };
