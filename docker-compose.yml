@@ -10,6 +10,7 @@ services:
       LETSENCRYPT_HOST: "${API_LETSENCRYPT_HOST}"
       LETSENCRYPT_EMAIL: "${API_LETSENCRYPT_EMAIL}"
       PRISMA_SECRET: "${PRISMA_SECRET}"
+      NODE_TLS_REJECT_UNAUTHORIZED: 0
   prisma:
     image: prismagraphql/prisma:1.34
     restart: always
