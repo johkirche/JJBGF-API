@@ -40,8 +40,8 @@ server.express.use(function(req, res, next) {
 server.start(
   {
     cors: {
-      credentials: true,
-      origin: "http://localhost:8080/"
+      credentials: false,
+      origin: "*"
     }
   },
   () => console.log(`GraphQL server is running on http://localhost:4000`)
